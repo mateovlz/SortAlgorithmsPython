@@ -3,54 +3,65 @@ from Methods import BubbleSort as bubble, QuickSort as quick, MergeSort as merge
 import cProfile as profile
 import random
 import sys
-
-# It create a list within 3000 registers randomly,
-# with a range from 0 to 3000
-maximum = 3000
-randomList = []
-for i in range(0, maximum):
-    randomList.append(random.randint(0, maximum))
-
-print("List to Order: {}".format(randomList))
+import time
 
 
-def quickort():
+def quickort(randomList):
     quick.quick_sort(randomList, 0, len(randomList) - 1)
     # print(randomList)
 
 
-def bubblesort():
+def bubblesort(randomList):
     bubble.bubble_sort(randomList)
     # print(randomList)
 
 
-def mergesort():
+def mergesort(randomList):
     merge.merge_sort(randomList)
     # print(randomList)
 
 
-def selectionsort():
+def selectionsort(randomList):
     selection.selection_sort(randomList)
     # print(randomList)
 
 
-def heapsort():
+def heapsort(randomList):
     heap.heap_sort(randomList)
     # print(randomList)
+
+
+def statistics():
+    numTotalTest = 10
+    for iteration in range(0, numTotalTest):
+        print(
+            "---------------------------------------------- Iteration Number {} ----------------------------------------------".format(
+                iteration))
+        # It create a list within 3000 registers randomly,
+        # with a range from 0 to 3000
+        maximum = 3000
+        randomList = []
+        for i in range(0, maximum):
+            randomList.append(random.randint(0, maximum))
+        print("--------------------------------------- BubbleSort -------------------------------")
+        profile.runctx('bubblesort(randomList)', globals(), {'randomList': randomList})
+        print("--------------------------------------- QuickSort -------------------------------")
+        profile.runctx('quickort(randomList)', globals(), {'randomList': randomList})
+        print("--------------------------------------- MergeSort -------------------------------")
+        profile.runctx('mergesort(randomList)', globals(), {'randomList': randomList})
+        print("--------------------------------------- SelectionSort -------------------------------")
+        profile.runctx('selectionsort(randomList)', globals(), {'randomList': randomList})
+        print("--------------------------------------- HeapSort -------------------------------")
+        profile.runctx('heapsort(randomList)', globals(), {'randomList': randomList})
 
 
 # The main method of the script
 if __name__ == '__main__':
     # Setting the limit of recursion that python interpreter could do.
-    sys.setrecursionlimit(maximum + maximum)
-    # profile.run('start()')
-    print("--------------------------------------- BubbleSort -------------------------------")
-    profile.run('bubblesort()')
-    print("--------------------------------------- QuickSort -------------------------------")
-    profile.run('quickort()')
-    print("--------------------------------------- MergeSort -------------------------------")
-    profile.run('mergesort()')
-    print("--------------------------------------- SelectionSort -------------------------------")
-    profile.run('selectionsort()')
-    print("--------------------------------------- HeapSort -------------------------------")
-    profile.run('heapsort()')
+    maximunIterations = 10000
+    sys.setrecursionlimit(maximunIterations + maximunIterations)
+    print("Starts the processing...")
+    timeStart = time.time()
+    statistics()
+    endStart = time.time()
+    print("It last: {} Seconds".format(endStart - timeStart))
