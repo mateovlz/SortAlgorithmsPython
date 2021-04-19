@@ -30,7 +30,7 @@ def heapsort(randomList):
     # print(randomList)
 
 
-def stadistics():
+def statistics():
     numTotalTests = 10
     for testCases in range(0, 30000, 3000):
         valueBubble = 0
@@ -88,6 +88,6 @@ if __name__ == '__main__':
     sys.setrecursionlimit(maximunIterations + maximunIterations)
     print("Starts the processing...")
     timeStart = time.time()
-    stadistics()
+    statistics()
     endStart = time.time()
     print("It last: {} Seconds".format(endStart - timeStart))
