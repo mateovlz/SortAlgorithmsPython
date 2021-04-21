@@ -76,7 +76,7 @@ def statistics():
         valueAverageMerge = valueMerge / numTotalTests
         valueAverageSelection = valueSelection / numTotalTests
         valueAverageHeap = valueHeap / numTotalTests
-        print("Average; {}; Bubble; {}, Quick; {}; Merge; {}; Selection; {}; Heap; {} ;".format(testCases, round(
+        print("Average; {}; Bubble; {}; Quick; {}; Merge; {}; Selection; {}; Heap; {} ;".format(testCases, round(
             valueAverageBubble, 4), round(valueAverageQuick, 4), round(valueAverageMerge, 4), round(
             valueAverageSelection, 4), round(valueAverageHeap, 4)))
 
