@@ -43,16 +43,21 @@ def statistics():
         randomList = []
         for i in range(0, maximum):
             randomList.append(random.randint(0, maximum))
+        randomListCopy = randomList.copy()
         print("--------------------------------------- BubbleSort -------------------------------")
-        profile.runctx('bubblesort(randomList)', globals(), {'randomList': randomList})
+        profile.runctx('bubblesort(randomList)', globals(), {'randomList': randomListCopy})
+        randomListCopy = randomList.copy()
         print("--------------------------------------- QuickSort -------------------------------")
-        profile.runctx('quickort(randomList)', globals(), {'randomList': randomList})
+        profile.runctx('quickort(randomList)', globals(), {'randomList': randomListCopy})
+        randomListCopy = randomList.copy()
         print("--------------------------------------- MergeSort -------------------------------")
-        profile.runctx('mergesort(randomList)', globals(), {'randomList': randomList})
+        profile.runctx('mergesort(randomList)', globals(), {'randomList': randomListCopy})
+        randomListCopy = randomList.copy()
         print("--------------------------------------- SelectionSort -------------------------------")
-        profile.runctx('selectionsort(randomList)', globals(), {'randomList': randomList})
+        profile.runctx('selectionsort(randomList)', globals(), {'randomList': randomListCopy})
+        randomListCopy = randomList.copy()
         print("--------------------------------------- HeapSort -------------------------------")
-        profile.runctx('heapsort(randomList)', globals(), {'randomList': randomList})
+        profile.runctx('heapsort(randomList)', globals(), {'randomList': randomListCopy})
 
 
 # The main method of the script
